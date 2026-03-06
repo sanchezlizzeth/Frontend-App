@@ -65,7 +65,7 @@ export default function Paquetes() {
   };
 
   const renovarMensualidad = () => {
-    const phoneNumber = "5256695540577"; // CAMBIA ESTE NÚMERO POR EL REAL
+    const phoneNumber = "524681026947"; // CAMBIA ESTE NÚMERO POR EL REAL
     const userName = user?.name ? user.name : "cliente";
     const message = encodeURIComponent(
       `Hola, soy ${userName} y quiero renovar mi mensualidad en ZoneGym. ¿Me pueden apoyar con el proceso de pago y validación?`,
