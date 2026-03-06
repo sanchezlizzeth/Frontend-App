@@ -46,3 +46,13 @@ html,
 body {
   height: 100%;
 }
+
+select option {
+  background-color: #111; /* Fondo oscuro */
+  color: #fff;
+  padding: 10px;
+}
+
+select:focus {
+  outline: 2px solid #f97316; /* Color naranja de tu marca al seleccionar */
+}

@@ -10,6 +10,8 @@ import MiProgreso from "./components/secciones/Progreso.jsx";
 import Testimonials from "./components/secciones/Testimonials.jsx";
 import Contact from "./components/secciones/Contact.jsx"; // OJO: si tu archivo se llama Contact.jsx
 import Login from "./components/secciones/auth/login.jsx";
+import ReservaForm from './components/ReservaForm';
+
 
 export default function App() {
     // Retención en puntos (como la barra “anterior”)
@@ -48,6 +50,7 @@ export default function App() {
                 />
 
                 <Route path="/classes" element={<Classes onAccionInicio={sumarRetencion} />} />
+                <Route path="/reservar/:claseId" element={<ReservaForm />} />
                 <Route path="/horarios" element={<Horarios />} />
                 <Route path="/paquetes" element={<Paquetes />} />
                 <Route path="/reto" element={<Reto />} />

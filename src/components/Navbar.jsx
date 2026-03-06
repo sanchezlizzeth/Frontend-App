@@ -5,9 +5,8 @@ import {NavLink, Link} from "react-router-dom";
 export default function Navbar({navbarLinks = []}) {
     // 1. Estado para controlar el menú móvil
     const [isOpen, setIsOpen] = useState(false);
-
     const toggleMenu = () => setIsOpen(!isOpen);
-
+    
     return (
         <header className="bg-gradient-to-r from-red-700 to-red-900 border-b border-white/10 sticky top-0 z-50">
             <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
@@ -35,12 +34,6 @@ export default function Navbar({navbarLinks = []}) {
                             </NavLink>
                         ))}
                     </nav>
-
-                    {/* Iconos de Search/Cart (Visibles siempre o según prefieras) */}
-                    <div className="flex gap-3 text-lg mr-2">
-                        <FaSearch className="cursor-pointer hover:text-gray-300" />
-                        <FaShoppingCart className="cursor-pointer hover:text-gray-300" />
-                    </div>
 
                     {/* Botón Login Desktop */}
                     <Link

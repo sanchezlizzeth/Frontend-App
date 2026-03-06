@@ -52,17 +52,10 @@ export default function Clases() {
     [],
   );
 
-  const reservar = async (clase) => {
-    setSeleccion(clase.id);
-    setToast(`✅ Reservaste: ${clase.nombre}`);
-
-    // BACKEND (ejemplo):
-    // await api.post("/reservas", { claseId: clase.id, fecha: "2026-03-02" })
-    // await api.post("/progreso/sumar", { motivo: `clase_${clase.id}`, puntos: clase.puntos })
-
-    // Quitar toast después de 2s
-    setTimeout(() => setToast(""), 2000);
-  };
+ const reservar = (clase) => {
+  // Redirigimos al formulario enviando el ID de la clase como parámetro
+  navigate(`/reservar/${clase.id}`);
+};
 
   const verHorarios = () => navigate("/horarios");
 
