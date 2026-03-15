@@ -106,7 +106,7 @@ const Login = () => {
       }
 
       localStorage.setItem("user", JSON.stringify(data));
-      alert(data.message || `Bienvenido, ${data.name}`);
+      //alert(data.message || `Bienvenido, ${data.name}`);
 
       if (data.role === "admin") {
         navigate("/admin");
