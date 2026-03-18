@@ -17,7 +17,7 @@ const Login = () => {
     messageForAdmin: "",
   });
 
-  const API_URL = "https://zonegym-backend-production.up.railway.app/api/login";
+  const API_URL = "https://zonegym-backend-production.up.railway.app/api/users";
 
   useEffect(() => {
     const mode = searchParams.get("mode");
@@ -80,7 +80,7 @@ const Login = () => {
         };
 
     try {
-      const response = await fetch(`${API_URL}${endpoint}`, {
+      const response = await fetch(`${API_URL}/${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
