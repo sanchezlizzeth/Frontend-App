@@ -6,7 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 const BG =
   "https://static.vecteezy.com/system/resources/thumbnails/023/999/187/small/weights-next-to-barbell-in-a-gym-generative-ai-photo.jpg";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_KEY = import.meta.env.VITE_API_KEY || "";
 
 export default function Comentarios() {
   const [texto, setTexto] = useState("");
@@ -16,6 +17,39 @@ export default function Comentarios() {
   const [cargando, setCargando] = useState(false);
   const [exito, setExito] = useState(false);
 
+  const enviarComentario = async () => {
+    setError("");
+    if (!texto.trim()) {
+      setError("Escribe un comentario antes de enviar.");
+      return;
+    }
+    setCargando(true);
+    try {
+      const res = await fetch(`${BACKEND_URL}/comentarios`, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": API_KEY,
+        },
+        body: JSON.stringify({ texto }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Error del servidor.");
+        return;
+      }
+      setComentario(data.comentario);
+      setTexto("");
+      setExito(true);
+      setTimeout(() => setExito(false), 2500);
+    } catch {
+      setError(
+        " No se pudo conectar al servidor. ¿Está corriendo el backend?"
+      );
+    } finally {
+      setCargando(false);
+    }
+  };
   const enviarComentario = async () => {
     setError("");
     if (!texto.trim()) {
